@@ -1,568 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Dashboard | GlobePath</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0a0a0a;
-      --surface: #171717;
-      --surface-hover: #262626;
-      --accent: #f5a623;
-      --accent-dim: rgba(245, 166, 35, 0.15);
-      --text: #ffffff;
-      --text-muted: #a3a3a3;
-      --border: #333333;
-      --success: #10b981;
-      --danger: #ef4444;
-      --warning: #f59e0b;
-    }
-    
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      margin-bottom: 0.5em;
-    }
-    
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 2rem 1rem;
-    }
-    
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    
-    .logo {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--text);
-      text-decoration: none;
-      display: inline-block;
-      margin-bottom: 2rem;
-    }
-    
-    .logo span {
-      color: var(--accent);
-    }
-    
-    .loading-spinner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 50vh;
-    }
-    
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 3px solid var(--border);
-      border-top-color: var(--accent);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin-bottom: 1rem;
-    }
-    
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-    
-    .error-container {
-      text-align: center;
-      margin-top: 10vh;
-      padding: 3rem 1rem;
-      background: var(--surface);
-      border-radius: 16px;
-      border: 1px solid var(--border);
-    }
-    
-    .error-container h1 {
-      font-size: 5rem;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 1rem;
-    }
-    
-    .section {
-      background: var(--surface);
-      border-radius: 16px;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border: 1px solid var(--border);
-    }
-    
-    .section-title {
-      font-size: 1.5rem;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-    }
-    
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    
-    @media (min-width: 768px) {
-      .grid-2 { grid-template-columns: 1fr 1fr; }
-    }
-    
-    .grid-3 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-    
-    @media (min-width: 768px) {
-      .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    }
-    
-    .card {
-      background: rgba(255,255,255,0.03);
-      border-radius: 12px;
-      padding: 1.25rem;
-      border: 1px solid var(--border);
-    }
-    
-    .label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--text-muted);
-      margin-bottom: 0.5rem;
-      display: block;
-      font-weight: 600;
-    }
-    
-    .value {
-      font-size: 1.05rem;
-      font-weight: 500;
-    }
-    
-    .badge {
-      display: inline-block;
-      padding: 0.35rem 0.85rem;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      background: var(--accent-dim);
-      color: var(--accent);
-      border: 1px solid rgba(245, 166, 35, 0.3);
-    }
-    
-    ul {
-      list-style-type: none;
-    }
-    
-    ul.check-list li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.75rem;
-      font-size: 0.95rem;
-    }
-    
-    ul.check-list li::before {
-      content: '→';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: bold;
-    }
-    
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 0.5rem;
-    }
-    
-    th, td {
-      padding: 1rem;
-      text-align: left;
-      border-bottom: 1px solid var(--border);
-    }
-    
-    th {
-      font-weight: 600;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      font-size: 0.75rem;
-      letter-spacing: 0.05em;
-      background: rgba(0,0,0,0.2);
-    }
-    
-    tr:last-child td {
-      border-bottom: none;
-    }
-
-    .table-container {
-      overflow-x: auto;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: #000;
-      padding: 0.85rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      font-family: 'Syne', sans-serif;
-      transition: all 0.2s ease;
-      border: none;
-      cursor: pointer;
-    }
-
-    .btn:hover {
-      background: #e59612;
-      transform: translateY(-2px);
-    }
-    
-    .btn-outline {
-      background: transparent;
-      color: var(--accent);
-      border: 2px solid var(--accent);
-    }
-    
-    .btn-outline:hover {
-      background: var(--accent-dim);
-      color: var(--accent);
-    }
-
-    #dashboard {
-      display: none;
-    }
-    
-    .student-header {
-      margin-bottom: 3rem;
-      text-align: center;
-    }
-    
-    .student-name {
-      font-size: clamp(2.5rem, 5vw, 4rem);
-      margin-bottom: 0.5rem;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-    }
-    
-    .student-meta {
-      color: var(--text-muted);
-      font-size: 1.1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    
-    .student-meta span {
-      background: var(--surface);
-      padding: 0.5rem 1rem;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard | GlobePath</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#0c0c0c;--s:#161616;--s2:#1e1e1e;--acc:#f5a623;--acc2:rgba(245,166,35,.12);--t:#f0f0f0;--tm:#8a8a8a;--b:#2a2a2a;--ok:#22c55e;--bad:#ef4444}
+body{background:var(--bg);color:var(--t);font-family:'DM Sans',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+h1,h2,h3,h4{font-family:'Syne',sans-serif;font-weight:700;line-height:1.2}
+.wrap{max-width:960px;margin:0 auto;padding:2rem 1.25rem 4rem}
+/* header */
+.logo{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:var(--t);display:block;margin-bottom:3rem}
+.logo span{color:var(--acc)}
+/* loading */
+#loading{display:flex;flex-direction:column;align-items:center;justify-content:center;height:60vh;gap:1rem}
+.spin{width:44px;height:44px;border:3px solid var(--b);border-top-color:var(--acc);border-radius:50%;animation:rot 1s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+/* 404 */
+#err{display:none;text-align:center;margin-top:10vh;padding:3rem 1rem}
+#err h1{font-size:6rem;color:var(--acc);line-height:1}
+/* dashboard */
+#dash{display:none}
+.hero{text-align:center;margin-bottom:3.5rem;padding:2.5rem 1rem;background:linear-gradient(135deg,#0c0c0c 0%,#1a1400 100%);border:1px solid #2a2000;border-radius:20px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% -20%,rgba(245,166,35,.18) 0%,transparent 70%);pointer-events:none}
+.hero h1{font-size:clamp(2rem,5vw,3.5rem);margin-bottom:.75rem;letter-spacing:-.02em}
+.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem;margin-top:1rem}
+.tag{background:var(--acc2);border:1px solid rgba(245,166,35,.25);color:var(--acc);padding:.35rem .9rem;border-radius:999px;font-size:.82rem;font-weight:600}
+/* section */
+.sec{background:var(--s);border:1px solid var(--b);border-radius:16px;padding:1.75rem;margin-bottom:2rem}
+.sec-title{font-family:'Syne',sans-serif;font-size:1.25rem;color:var(--acc);margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--b);display:flex;align-items:center;gap:.6rem}
+.sec-title .icon{font-size:1.1rem}
+/* grid */
+.g2{display:grid;gap:1.25rem;grid-template-columns:1fr}
+.g3{display:grid;gap:1.25rem;grid-template-columns:1fr}
+@media(min-width:640px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+/* card */
+.card{background:var(--s2);border:1px solid var(--b);border-radius:12px;padding:1.25rem}
+.lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--tm);font-weight:600;display:block;margin-bottom:.4rem}
+/* badge */
+.badge{display:inline-block;background:var(--acc2);border:1px solid rgba(245,166,35,.3);color:var(--acc);padding:.4rem 1rem;border-radius:999px;font-weight:700;font-size:.95rem}
+/* arrow list */
+.alist{list-style:none}
+.alist li{padding-left:1.4rem;position:relative;margin-bottom:.6rem;font-size:.93rem}
+.alist li::before{content:'→';position:absolute;left:0;color:var(--acc);font-weight:700}
+.alist.ok li::before{color:var(--ok)}
+.alist.bad li::before{content:'✕';color:var(--bad)}
+/* table */
+.tbl-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--b)}
+table{width:100%;border-collapse:collapse;min-width:500px}
+th{background:#111;color:var(--tm);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;padding:.85rem 1rem;text-align:left;font-weight:600}
+td{padding:.9rem 1rem;border-top:1px solid var(--b);font-size:.9rem;vertical-align:top}
+tr:hover td{background:rgba(255,255,255,.02)}
+.uni-name{font-weight:600;font-size:.98rem;color:var(--t)}
+.uni-sub{font-size:.8rem;color:var(--tm);margin-top:.2rem}
+/* pill tier labels */
+.tier{font-size:.75rem;font-weight:700;padding:.25rem .7rem;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+.tier-reach{background:rgba(239,68,68,.12);color:var(--bad);border:1px solid rgba(239,68,68,.25)}
+.tier-real{background:var(--acc2);color:var(--acc);border:1px solid rgba(245,166,35,.25)}
+.tier-safe{background:rgba(34,197,94,.1);color:var(--ok);border:1px solid rgba(34,197,94,.2)}
+/* month timeline */
+.timeline{display:flex;flex-direction:column;gap:.75rem}
+.tl-item{display:grid;grid-template-columns:90px 1fr;gap:1rem;align-items:start}
+.tl-month{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--acc);background:var(--acc2);border:1px solid rgba(245,166,35,.25);padding:.4rem .75rem;border-radius:8px;text-align:center;white-space:nowrap}
+.tl-body{background:var(--s2);border:1px solid var(--b);border-radius:10px;padding:.9rem 1rem}
+.tl-focus{font-weight:700;font-family:'Syne',sans-serif;font-size:.95rem;margin-bottom:.3rem}
+.tl-actions{font-size:.87rem;color:var(--tm)}
+/* cta */
+.cta{text-align:center;margin-top:3rem;padding:2.5rem 1.25rem;background:linear-gradient(135deg,#0c0c0c,#1a1400);border:1px solid #2a2000;border-radius:20px}
+.cta h2{font-size:1.75rem;margin-bottom:1.5rem}
+.btns{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
+.btn{padding:.85rem 1.75rem;border-radius:10px;font-weight:700;font-family:'Syne',sans-serif;font-size:.95rem;cursor:pointer;transition:transform .15s,opacity .15s}
+.btn-fill{background:var(--acc);color:#000}
+.btn-outline{background:transparent;color:var(--acc);border:2px solid var(--acc)}
+.btn:hover{transform:translateY(-2px);opacity:.9}
+/* disclaimer */
+.disc{font-size:.8rem;color:var(--tm);margin-top:2rem;padding:1rem;background:var(--s2);border-radius:10px;border-left:3px solid var(--b)}
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <a href="/" class="logo">Globe<span>Path</span></a>
-    </header>
+<div class="wrap">
+  <a href="/" class="logo">Globe<span>Path</span></a>
 
-    <div id="loading" class="loading-spinner">
-      <div class="spinner"></div>
-      <p style="color: var(--text-muted); font-family: 'Syne', sans-serif; font-weight: 600;">Analyzing Profile...</p>
-    </div>
-    
-    <div id="error" class="error-container" style="display: none;">
-      <h1>404</h1>
-      <h2 style="margin-bottom: 1rem;">Profile Not Found</h2>
-      <p style="color: var(--text-muted); margin-bottom: 2rem;">The student profile you're looking for doesn't exist or has been moved.</p>
-      <a href="/" class="btn">Return Home</a>
-    </div>
-
-    <div id="dashboard">
-      <div class="student-header">
-        <h1 class="student-name" id="name">Student Name</h1>
-        <div class="student-meta" id="meta-tags">
-          <!-- Tags injected here -->
-        </div>
-      </div>
-      
-      <div id="content"></div>
-    </div>
+  <div id="loading">
+    <div class="spin"></div>
+    <p style="color:var(--tm);font-family:'Syne',sans-serif;font-weight:600">Loading Profile…</p>
   </div>
 
-  <script>
-    function getStudentId() {
-      const pathSegments = window.location.pathname.split('/').filter(Boolean);
-      // Expected path: /dashboard/student-id
-      if (pathSegments.length >= 2 && pathSegments[0] === 'dashboard') {
-        return pathSegments[1];
-      }
-      return null;
-    }
+  <div id="err">
+    <h1>404</h1>
+    <h2 style="margin:.75rem 0 1rem">Profile Not Found</h2>
+    <p style="color:var(--tm);margin-bottom:1.75rem">This student profile doesn't exist or hasn't been published yet.</p>
+    <a href="/" class="btn btn-fill">← Back to Home</a>
+  </div>
 
-    async function initDashboard() {
-      const studentId = getStudentId();
-      
-      if (!studentId) {
-        showError();
-        return;
-      }
+  <div id="dash"></div>
+</div>
 
-      try {
-        const response = await fetch(`/students/${studentId}.json`);
-        if (!response.ok) throw new Error('Not found');
-        const data = await response.json();
-        renderDashboard(data);
-      } catch (err) {
-        console.error(err);
-        showError();
-      }
-    }
+<script>
+const $ = id => document.getElementById(id);
 
-    function showError() {
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('dashboard').style.display = 'none';
-      document.getElementById('error').style.display = 'block';
-    }
+function slug() {
+  const parts = location.pathname.split('/').filter(Boolean);
+  return parts[0] === 'dashboard' && parts[1] ? parts[1] : null;
+}
 
-    function safeStr(str) {
-      return str || '<span style="color: var(--text-muted); font-style: italic;">Not specified</span>';
-    }
+function safe(v, fb = '') { return v || fb; }
 
-    function safeList(arr, renderFn) {
-      if (!arr || !Array.isArray(arr) || arr.length === 0) return '';
-      const valid = arr.filter(item => {
-        if (typeof item === 'string') return item.trim() !== '';
-        if (typeof item === 'object') return Object.values(item).some(v => v && String(v).trim() !== '');
-        return true;
-      });
-      if (valid.length === 0) return '';
-      return renderFn(valid);
-    }
+function listHtml(arr, cls = '') {
+  if (!arr || !arr.length) return '';
+  const items = arr.filter(i => String(i).trim());
+  return items.length ? `<ul class="alist ${cls}">${items.map(i => `<li>${i}</li>`).join('')}</ul>` : '';
+}
 
-    function renderDashboard(data) {
-      // Header
-      const info = data.studentInfo || {};
-      document.getElementById('name').textContent = info.name || 'Anonymous Student';
-      
-      const metaTags = [];
-      if (info.studyStage) metaTags.push(`<span>${info.studyStage}</span>`);
-      if (info.targetDegree) metaTags.push(`<span>Target: ${info.targetDegree}</span>`);
-      if (info.citySchool) metaTags.push(`<span>${info.citySchool}</span>`);
-      document.getElementById('meta-tags').innerHTML = metaTags.join('');
+function uniTable(unis, cls, label) {
+  const valid = (unis || []).filter(u => u.name && u.name.trim());
+  if (!valid.length) return '';
+  return `
+    <h3 style="margin:1.5rem 0 .75rem;display:flex;align-items:center;gap:.5rem">
+      <span class="tier ${cls}">${label}</span>
+    </h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>University</th><th>Rank</th><th>Acceptance</th><th>Why This Pick</th></tr></thead>
+        <tbody>
+          ${valid.map(u => `
+            <tr>
+              <td>
+                <div class="uni-name">${u.name}</div>
+                <div class="uni-sub">${safe(u.program)} · ${safe(u.country)}</div>
+              </td>
+              <td>${safe(u.qsRank, '—')}</td>
+              <td>${safe(u.acceptanceRate, '—')}</td>
+              <td style="max-width:240px">${safe(u.why)}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>`;
+}
 
-      let html = '';
+function render(d) {
+  const info = d.studentInfo || {};
+  const rc = d.realityCheck || {};
+  const pa = d.profileAssessment || {};
+  const ul = d.universityList || {};
+  const fr = d.financialReality || {};
+  const ap = Array.isArray(d.actionPlan) ? d.actionPlan.filter(a => a.focus) : [];
+  const sch = (d.scholarships || {}).list || [];
+  const ec = (d.extracurriculars || []).filter(e => e.name);
+  const es = d.essayStrategy || {};
+  const rf = d.redFlags || {};
+  const com = d.community || {};
 
-      // Reality Check
-      if (data.realityCheck) {
-        html += \`
-          <div class="section" style="border: 1px solid var(--accent); position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent);"></div>
-            <h2 class="section-title" style="border-bottom: none; margin-bottom: 1rem;">Reality Check</h2>
-            <div class="grid-2">
-              <div>
-                <span class="label">Admission Chance</span>
-                <div class="badge" style="margin-bottom: 1.5rem; font-size: 1rem;">\${safeStr(data.realityCheck.chanceLevel)}</div>
-                <div class="card">
-                  <span class="label">The "Why"</span>
-                  <div class="value">\${safeStr(data.realityCheck.reasonWhy)}</div>
-                </div>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <div class="card">
-                  <span class="label">What Needs to Change</span>
-                  <div class="value">\${safeStr(data.realityCheck.whatChanges)}</div>
-                </div>
-                <div class="card" style="border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.05);">
-                  <span class="label" style="color: var(--danger);">Brutal Truth / Delusion</span>
-                  <div class="value" style="color: #fca5a5;">\${safeStr(data.realityCheck.lyingToThemselves)}</div>
-                </div>
-              </div>
-            </div>
+  let html = `
+    <div class="hero">
+      <h1>${safe(info.name, 'Student')}</h1>
+      <p style="color:var(--tm);font-size:1rem;margin-top:.4rem">${safe(info.personalSummary)}</p>
+      <div class="tags">
+        ${info.studyStage ? `<span class="tag">${info.studyStage}</span>` : ''}
+        ${info.targetDegree ? `<span class="tag">🎓 ${info.targetDegree}</span>` : ''}
+        ${info.fieldOfInterest ? `<span class="tag">⚡ ${info.fieldOfInterest}</span>` : ''}
+        ${info.citySchool ? `<span class="tag">📍 ${info.citySchool}</span>` : ''}
+      </div>
+    </div>`;
+
+  /* Reality Check */
+  if (rc.chanceLevel) html += `
+    <div class="sec" style="border-color:rgba(245,166,35,.35);background:linear-gradient(135deg,#161616,#1a1400)">
+      <div class="sec-title"><span class="icon">⚡</span>Reality Check</div>
+      <div class="g2">
+        <div>
+          <span class="lbl">Admission Chance</span>
+          <div class="badge" style="font-size:1.05rem;margin-bottom:1rem">${rc.chanceLevel}</div>
+          <div class="card"><span class="lbl">The Why</span>${safe(rc.reasonWhy)}</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.85rem">
+          <div class="card"><span class="lbl">What Must Change</span>${safe(rc.whatChanges)}</div>
+          <div class="card" style="border-color:rgba(239,68,68,.3);background:rgba(239,68,68,.05)">
+            <span class="lbl" style="color:var(--bad)">Brutal Truth</span>
+            <span style="color:#fca5a5">${safe(rc.lyingToThemselves)}</span>
           </div>
-        \`;
-      }
+        </div>
+      </div>
+    </div>`;
 
-      // Profile Assessment
-      if (data.profileAssessment) {
-        html += \`
-          <div class="section">
-            <h2 class="section-title">Profile Assessment</h2>
-            <div class="grid-2" style="margin-bottom: 1.5rem;">
-              <div class="card">
-                <span class="label" style="color: var(--success);">Core Strengths</span>
-                <ul class="check-list" style="--accent: var(--success);">
-                  \${safeList(data.profileAssessment.strengths, items => items.map(i => \`<li>\${i}</li>\`).join('')) || '<p class="text-muted">None specified</p>'}
-                </ul>
-              </div>
-              <div class="card">
-                <span class="label" style="color: var(--danger);">Critical Weaknesses</span>
-                <ul class="check-list" style="--accent: var(--danger);">
-                  \${safeList(data.profileAssessment.weaknesses, items => items.map(i => \`<li>\${i}</li>\`).join('')) || '<p class="text-muted">None specified</p>'}
-                </ul>
-              </div>
-            </div>
-            <div class="grid-3">
-              <div class="card"><span class="label">Primary Admission Hook</span><div class="value">\${safeStr(data.profileAssessment.meansForAdmission)}</div></div>
-              <div class="card"><span class="label">Fixable Issues</span><div class="value">\${safeStr(data.profileAssessment.canBeChanged)}</div></div>
-              <div class="card"><span class="label">Unchangeable Facts</span><div class="value">\${safeStr(data.profileAssessment.cannotBeChanged)}</div></div>
-            </div>
-          </div>
-        \`;
-      }
+  /* Profile Assessment */
+  if (pa.strengths || pa.weaknesses) html += `
+    <div class="sec">
+      <div class="sec-title"><span class="icon">📊</span>Profile Assessment</div>
+      <div class="g2" style="margin-bottom:1.25rem">
+        <div class="card">
+          <span class="lbl" style="color:var(--ok)">Strengths</span>
+          ${listHtml(pa.strengths, 'ok')}
+        </div>
+        <div class="card">
+          <span class="lbl" style="color:var(--bad)">Weaknesses</span>
+          ${listHtml(pa.weaknesses, 'bad')}
+        </div>
+      </div>
+      <div class="g3">
+        <div class="card"><span class="lbl">Admission Hook</span>${safe(pa.meansForAdmission)}</div>
+        <div class="card"><span class="lbl">Can Fix</span>${safe(pa.canBeChanged)}</div>
+        <div class="card"><span class="lbl">Cannot Change</span>${safe(pa.cannotBeChanged)}</div>
+      </div>
+    </div>`;
 
-      // University List
-      if (data.universityList) {
-        const renderUnis = (list) => {
-          return safeList(list, items => \`
-            <div class="table-container">
-              <table>
-                <thead>
+  /* Universities */
+  if (ul.reach || ul.realistic || ul.safety) html += `
+    <div class="sec">
+      <div class="sec-title"><span class="icon">🏛️</span>Target Universities</div>
+      ${uniTable(ul.reach, 'tier-reach', 'Reach')}
+      ${uniTable(ul.realistic, 'tier-real', 'Realistic')}
+      ${uniTable(ul.safety, 'tier-safe', 'Safety')}
+    </div>`;
+
+  /* Scholarships */
+  if (sch.filter(s => s.name).length) html += `
+    <div class="sec">
+      <div class="sec-title"><span class="icon">💰</span>Scholarships</div>
+      ${d.scholarships.mostImportant ? `<div class="card" style="border-color:var(--acc);margin-bottom:1.25rem"><span class="lbl">Top Priority</span>${d.scholarships.mostImportant}</div>` : ''}
+      <div class="tbl-wrap">
+        <table>
+          <thead><tr><th>Scholarship</th><th>Amount</th><th>Deadline</th><th>Why Apply</th></tr></thead>
+          <tbody>
+            ${sch.filter(s => s.name).map(s => `
+              <tr>
+                <td><div class="uni-name">${s.name}</div><div class="uni-sub">${safe(s.eligibility)}</div></td>
+                <td style="font-weight:700;color:var(--ok)">${safe(s.amount)}</td>
+                <td style="white-space:nowrap">${safe(s.deadline)}</td>
+                <td>${safe(s.why)}</td>
+              </tr>`).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>`;
+
+  /* Financial Reality */
+  if (fr.costBreakdown) html += `
+    <div class="sec">
+      <div class="sec-title"><span class="icon">💳</span>Financial Reality</div>
+      <div class="g2">
+        <div>
+          <span class="lbl" style="margin-bottom:.75rem;display:block">Cost Breakdown</span>
+          <div class="tbl-wrap">
+            <table>
+              <thead><tr><th>Item</th><th>Safety</th><th>Realistic</th><th>Reach</th></tr></thead>
+              <tbody>
+                ${fr.costBreakdown.map(r => `
                   <tr>
-                    <th>University & Program</th>
-                    <th>Rank / Rate</th>
-                    <th>Strategic Rationale</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  \${items.map(u => \`
-                    <tr>
-                      <td>
-                        <strong style="color: var(--text); font-size: 1.05rem;">\${u.name}</strong>
-                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">\${u.program} • \${u.country}</div>
-                      </td>
-                      <td style="white-space: nowrap;">
-                        <div>QS: \${u.qsRank || '-'}</div>
-                        <div style="font-size: 0.85rem; color: var(--text-muted);">Acc: \${u.acceptanceRate || '-'}</div>
-                      </td>
-                      <td style="font-size: 0.95rem;">\${u.why}</td>
-                    </tr>
-                  \`).join('')}
-                </tbody>
-              </table>
-            </div>
-          \`);
-        };
-
-        html += \`
-          <div class="section">
-            <h2 class="section-title">Target Universities</h2>
-            \${data.universityList.reach && data.universityList.reach[0]?.name ? \`
-              <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--danger); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em;">Reach (Ambitious)</h3>
-              \${renderUnis(data.universityList.reach)}
-            \` : ''}
-            
-            \${data.universityList.realistic && data.universityList.realistic[0]?.name ? \`
-              <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; color: var(--accent); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em;">Realistic (Target)</h3>
-              \${renderUnis(data.universityList.realistic)}
-            \` : ''}
-            
-            \${data.universityList.safety && data.universityList.safety[0]?.name ? \`
-              <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; color: var(--success); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em;">Safety (Backup)</h3>
-              \${renderUnis(data.universityList.safety)}
-            \` : ''}
+                    <td style="font-weight:${r.item.includes('TOTAL') ? '700' : '400'}">${r.item}</td>
+                    <td>${safe(r.safety)}</td>
+                    <td>${safe(r.realistic)}</td>
+                    <td>${safe(r.reach)}</td>
+                  </tr>`).join('')}
+              </tbody>
+            </table>
           </div>
-        \`;
-      }
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.85rem">
+          ${fr.honestVerdict ? `<div class="card" style="border-color:var(--acc)"><span class="lbl">Honest Verdict</span>${fr.honestVerdict}</div>` : ''}
+          ${fr.loanOptions ? `<div class="card"><span class="lbl">Loan Options</span>${fr.loanOptions}</div>` : ''}
+          ${fr.partTimeWorkReality ? `<div class="card"><span class="lbl">Part-time Work</span>${fr.partTimeWorkReality}</div>` : ''}
+        </div>
+      </div>
+    </div>`;
 
-      // Financial Reality
-      if (data.financialReality) {
-        html += \`
-          <div class="section">
-            <h2 class="section-title">Financial Reality</h2>
-            <div class="grid-2">
-              <div class="table-container">
-                <table>
-                  <thead><tr><th>Funding Plan</th><th style="text-align: right;">Amount</th></tr></thead>
-                  <tbody>
-                    \${safeList(data.financialReality.fundingPlan, items => items.map(f => \`
-                      <tr>
-                        <td>\${f.item}</td>
-                        <td style="text-align: right; font-weight: \${f.item.includes('TOTAL') || f.item.includes('GAP') ? 'bold' : 'normal'}; color: \${f.item.includes('GAP') ? 'var(--danger)' : 'inherit'};">\${f.value || '-'}</td>
-                      </tr>
-                    \`).join(''))}
-                  </tbody>
-                </table>
-              </div>
-              <div style="display: flex; flex-direction: column; gap: 1rem;">
-                <div class="card" style="border-color: var(--accent);"><span class="label">Honest Verdict</span><div class="value">\${safeStr(data.financialReality.honestVerdict)}</div></div>
-                <div class="card"><span class="label">Loan Strategy</span><div class="value">\${safeStr(data.financialReality.loanOptions)}</div></div>
-                <div class="card"><span class="label">Part-time Work Reality</span><div class="value">\${safeStr(data.financialReality.partTimeWorkReality)}</div></div>
-              </div>
+  /* Extracurriculars */
+  if (ec.length) html += `
+    <div class="sec">
+      <div class="sec-title"><span class="icon">🚀</span>Extracurriculars to Build</div>
+      <div class="g2">
+        ${ec.map(e => `
+          <div class="card">
+            <div style="font-weight:700;font-family:'Syne',sans-serif;margin-bottom:.5rem">${e.name}</div>
+            <span class="lbl">Why</span><p style="font-size:.9rem;margin-bottom:.75rem">${safe(e.why)}</p>
+            <span class="lbl">How to Start</span><p style="font-size:.9rem;color:var(--tm)">${safe(e.how)}</p>
+          </div>`).join('')}
+      </div>
+    </div>`;
+
+  /* Essay Strategy */
+  if (es.coreNarrative) html += `
+    <div class="sec">
+      <div class="sec-title"><span class="icon">✍️</span>Essay Strategy</div>
+      <div class="g2" style="margin-bottom:1.25rem">
+        <div class="card"><span class="lbl">Core Narrative</span>${safe(es.coreNarrative)}</div>
+        <div class="card"><span class="lbl">Unique Angle</span>${safe(es.uniqueAngle)}</div>
+      </div>
+      <div class="g2">
+        ${es.toAvoid ? `<div class="card" style="border-color:rgba(239,68,68,.3)"><span class="lbl" style="color:var(--bad)">Do NOT Write About</span>${listHtml(es.toAvoid, 'bad')}</div>` : ''}
+        ${es.brainstormPrompts ? `<div class="card"><span class="lbl">Brainstorm Prompts</span>${listHtml(es.brainstormPrompts)}</div>` : ''}
+      </div>
+      ${es.lorStrategy ? `<div class="card" style="margin-top:1rem"><span class="lbl">LOR Strategy</span>${es.lorStrategy}</div>` : ''}
+    </div>`;
+
+  /* Red Flags */
+  if (rf.profileRedFlags) html += `
+    <div class="sec" style="border-color:rgba(239,68,68,.3)">
+      <div class="sec-title" style="color:var(--bad)"><span class="icon">🚩</span>Red Flags</div>
+      <div class="g2" style="margin-bottom:1.25rem">
+        <div class="card"><span class="lbl">Profile Red Flags</span>${listHtml(rf.profileRedFlags, 'bad')}</div>
+        <div class="card"><span class="lbl">False Beliefs</span>${listHtml(rf.falseBeliefs, 'bad')}</div>
+      </div>
+      ${rf.stopDoingImmediately ? `<div class="card" style="border-color:rgba(239,68,68,.4);background:rgba(239,68,68,.06)"><span class="lbl" style="color:var(--bad)">Stop Immediately</span><strong style="color:#fca5a5">${rf.stopDoingImmediately}</strong></div>` : ''}
+    </div>`;
+
+  /* Action Plan */
+  if (ap.length) html += `
+    <div class="sec">
+      <div class="sec-title"><span class="icon">📅</span>12-Month Execution Plan</div>
+      <div class="timeline">
+        ${ap.map(a => `
+          <div class="tl-item">
+            <div class="tl-month">${a.month}</div>
+            <div class="tl-body">
+              <div class="tl-focus">${safe(a.focus)}</div>
+              <div class="tl-actions">${safe(a.actions)}</div>
             </div>
-          </div>
-        \`;
-      }
+          </div>`).join('')}
+      </div>
+    </div>`;
 
-      // Action Plan
-      if (data.actionPlan) {
-        const validActions = (data.actionPlan || []).filter(a => a.month && a.focus);
-        if (validActions.length > 0) {
-          html += \`
-            <div class="section">
-              <h2 class="section-title">Execution Roadmap</h2>
-              <div class="grid-2">
-                \${validActions.map(a => \`
-                  <div class="card" style="border-left: 3px solid var(--accent);">
-                    <span class="label" style="color: var(--accent);">\${a.month}</span>
-                    <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; font-family: 'Syne', sans-serif;">\${a.focus}</div>
-                    <div style="font-size: 0.95rem; color: var(--text-muted);">\${a.actions}</div>
-                  </div>
-                \`).join('')}
-              </div>
-            </div>
-          \`;
-        }
-      }
-      
-      // Community
-      const community = data.community || {};
-      if (community.discord || community.instagram) {
-        html += \`
-          <div style="text-align: center; margin: 4rem 0 2rem;">
-            <h2 style="font-family: 'Syne', sans-serif; font-size: 1.75rem; margin-bottom: 1.5rem;">Ready to take action?</h2>
-            <div style="display: flex; gap: 1rem; justify-content: center;">
-              \${community.discord ? \`<a href="\${community.discord}" target="_blank" class="btn">Join Discord Community</a>\` : ''}
-              \${community.instagram ? \`<a href="\${community.instagram}" target="_blank" class="btn btn-outline">Follow on Instagram</a>\` : ''}
-            </div>
-          </div>
-        \`;
-      }
+  /* CTA */
+  if (com.discord || com.instagram) html += `
+    <div class="cta">
+      <h2>Ready to Execute?</h2>
+      <div class="btns">
+        ${com.discord ? `<a href="${com.discord}" target="_blank" class="btn btn-fill">Join Discord Community</a>` : ''}
+        ${com.instagram ? `<a href="${com.instagram}" target="_blank" class="btn btn-outline">Follow on Instagram</a>` : ''}
+      </div>
+    </div>`;
 
-      document.getElementById('content').innerHTML = html;
-      document.getElementById('loading').style.display = 'none';
-      document.getElementById('dashboard').style.display = 'block';
-    }
+  /* Disclaimer */
+  if (d.disclaimer) html += `<p class="disc">${d.disclaimer}</p>`;
 
-    window.addEventListener('DOMContentLoaded', initDashboard);
-  </script>
+  $('dash').innerHTML = html;
+  document.title = `${safe(info.name, 'Student')} | GlobePath`;
+  $('loading').style.display = 'none';
+  $('dash').style.display = 'block';
+}
+
+async function init() {
+  const id = slug();
+  if (!id) { $('loading').style.display = 'none'; $('err').style.display = 'block'; return; }
+  try {
+    const res = await fetch(`/students/${id}.json`);
+    if (!res.ok) throw new Error();
+    render(await res.json());
+  } catch {
+    $('loading').style.display = 'none';
+    $('err').style.display = 'block';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
 </body>
 </html>
