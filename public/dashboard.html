@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard | GlobePath</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --surface: #171717;
+      --surface-hover: #262626;
+      --accent: #f5a623;
+      --accent-dim: rgba(245, 166, 35, 0.15);
+      --text: #ffffff;
+      --text-muted: #a3a3a3;
+      --border: #333333;
+      --success: #10b981;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.5em;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    
+    .logo span {
+      color: var(--accent);
+    }
+    
+    .loading-spinner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 1rem;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    
+    .error-container {
+      text-align: center;
+      margin-top: 10vh;
+      padding: 3rem 1rem;
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+    
+    .error-container h1 {
+      font-size: 5rem;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    
+    .section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+    
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .grid-2 { grid-template-columns: 1fr 1fr; }
+    }
+    
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    }
+    
+    .card {
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+    }
+    
+    .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+      display: block;
+      font-weight: 600;
+    }
+    
+    .value {
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: var(--accent-dim);
+      color: var(--accent);
+      border: 1px solid rgba(245, 166, 35, 0.3);
+    }
+    
+    ul {
+      list-style-type: none;
+    }
+    
+    ul.check-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+    
+    ul.check-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+    }
+    
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    th {
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      background: rgba(0,0,0,0.2);
+    }
+    
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #000;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-family: 'Syne', sans-serif;
+      transition: all 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #e59612;
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+    
+    .btn-outline:hover {
+      background: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    #dashboard {
+      display: none;
+    }
+    
+    .student-header {
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+    
+    .student-name {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      margin-bottom: 0.5rem;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    
+    .student-meta {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .student-meta span {
+      background: var(--surface);
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="/" class="logo">Globe<span>Path</span></a>
+    </header>
+
+    <div id="loading" class="loading-spinner">
+      <div class="spinner"></div>
+      <p style="color: var(--text-muted); font-family: 'Syne', sans-serif; font-weight: 600;">Analyzing Profile...</p>
+    </div>
+    
+    <div id="error" class="error-container" style="display: none;">
+      <h1>404</h1>
+      <h2 style="margin-bottom: 1rem;">Profile Not Found</h2>
+      <p style="color: var(--text-muted); margin-bottom: 2rem;">The student profile you're looking for doesn't exist or has been moved.</p>
+      <a href="/" class="btn">Return Home</a>
+    </div>
+
+    <div id="dashboard">
+      <div class="student-header">
+        <h1 class="student-name" id="name">Student Name</h1>
+        <div class="student-meta" id="meta-tags">
+          <!-- Tags injected here -->
+        </div>
+      </div>
+      
+      <div id="content"></div>
+    </div>
+  </div>
+
+  <script>
+    function getStudentId() {
+      const pathSegments = window.location.pathname.split('/').filter(Boolean);
+      // Expected path: /dashboard/student-id
+      if (pathSegments.length >= 2 && pathSegments[0] === 'dashboard') {
+        return pathSegments[1];
+      }
+      return null;
+    }
+
+    async function initDashboard() {
+      const studentId = getStudentId();
+      
+      if (!studentId) {
+        showError();
+        return;
+      }
+
+      try {
+        const response = await fetch(`/students/${studentId}.json`);
+        if (!response.ok) throw new Error('Not found');
+        const data = await response.json();
+        renderDashboard(data);
+      } catch (err) {
+        console.error(err);
+        showError();
+      }
+    }
+
+    function showError() {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'none';
+      document.getElementById('error').style.display = 'block';
+    }
+
+    function safeStr(str) {
+      return str || '<span style="color: var(--text-muted); font-style: italic;">Not specified</span>';
+    }
+
+    function safeList(arr, renderFn) {
+      if (!arr || !Array.isArray(arr) || arr.length === 0) return '';
+      const valid = arr.filter(item => {
+        if (typeof item === 'string') return item.trim() !== '';
+        if (typeof item === 'object') return Object.values(item).some(v => v && String(v).trim() !== '');
+        return true;
+      });
+      if (valid.length === 0) return '';
+      return renderFn(valid);
+    }
+
+    function renderDashboard(data) {
+      // Header
+      const info = data.studentInfo || {};
+      document.getElementById('name').textContent = info.name || 'Anonymous Student';
+      
+      const metaTags = [];
+      if (info.studyStage) metaTags.push(`<span>${info.studyStage}</span>`);
+      if (info.targetDegree) metaTags.push(`<span>Target: ${info.targetDegree}</span>`);
+      if (info.citySchool) metaTags.push(`<span>${info.citySchool}</span>`);
+      document.getElementById('meta-tags').innerHTML = metaTags.join('');
+
+      let html = '';
+
+      // Reality Check
+      if (data.realityCheck) {
+        html += \`
+          <div class="section" style="border: 1px solid var(--accent); position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent);"></div>
+            <h2 class="section-title" style="border-bottom: none; margin-bottom: 1rem;">Reality Check</h2>
+            <div class="grid-2">
+              <div>
+                <span class="label">Admission Chance</span>
+                <div class="badge" style="margin-bottom: 1.5rem; font-size: 1rem;">\${safeStr(data.realityCheck.chanceLevel)}</div>
+                <div class="card">
+                  <span class="label">The "Why"</span>
+                  <div class="value">\${safeStr(data.realityCheck.reasonWhy)}</div>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="card">
+                  <span class="label">What Needs to Change</span>
+                  <div class="value">\${safeStr(data.realityCheck.whatChanges)}</div>
+                </div>
+                <div class="card" style="border-color: rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.05);">
+                  <span class="label" style="color: var(--danger);">Brutal Truth / Delusion</span>
+                  <div class="value" style="color: #fca5a5;">\${safeStr(data.realityCheck.lyingToThemselves)}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        \`;
+      }
+
+      // Profile Assessment
+      if (data.profileAssessment) {
+        html += \`
+          <div class="section">
+            <h2 class="section-title">Profile Assessment</h2>
+            <div class="grid-2" style="margin-bottom: 1.5rem;">
+              <div class="card">
+                <span class="label" style="color: var(--success);">Core Strengths</span>
+                <ul class="check-list" style="--accent: var(--success);">
+                  \${safeList(data.profileAssessment.strengths, items => items.map(i => \`<li>\${i}</li>\`).join('')) || '<p class="text-muted">None specified</p>'}
+                </ul>
+              </div>
+              <div class="card">
+                <span class="label" style="color: var(--danger);">Critical Weaknesses</span>
+                <ul class="check-list" style="--accent: var(--danger);">
+                  \${safeList(data.profileAssessment.weaknesses, items => items.map(i => \`<li>\${i}</li>\`).join('')) || '<p class="text-muted">None specified</p>'}
+                </ul>
+              </div>
+            </div>
+            <div class="grid-3">
+              <div class="card"><span class="label">Primary Admission Hook</span><div class="value">\${safeStr(data.profileAssessment.meansForAdmission)}</div></div>
+              <div class="card"><span class="label">Fixable Issues</span><div class="value">\${safeStr(data.profileAssessment.canBeChanged)}</div></div>
+              <div class="card"><span class="label">Unchangeable Facts</span><div class="value">\${safeStr(data.profileAssessment.cannotBeChanged)}</div></div>
+            </div>
+          </div>
+        \`;
+      }
+
+      // University List
+      if (data.universityList) {
+        const renderUnis = (list) => {
+          return safeList(list, items => \`
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>University & Program</th>
+                    <th>Rank / Rate</th>
+                    <th>Strategic Rationale</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  \${items.map(u => \`
+                    <tr>
+                      <td>
+                        <strong style="color: var(--text); font-size: 1.05rem;">\${u.name}</strong>
+                        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;">\${u.program} • \${u.country}</div>
+                      </td>
+                      <td style="white-space: nowrap;">
+                        <div>QS: \${u.qsRank || '-'}</div>
+                        <div style="font-size: 0.85rem; color: var(--text-muted);">Acc: \${u.acceptanceRate || '-'}</div>
+                      </td>
+                      <td style="font-size: 0.95rem;">\${u.why}</td>
+                    </tr>
+                  \`).join('')}
+                </tbody>
+              </table>
+            </div>
+          \`);
+        };
+
+        html += \`
+          <div class="section">
+            <h2 class="section-title">Target Universities</h2>
+            \${data.universityList.reach && data.universityList.reach[0]?.name ? \`
+              <h3 style="margin-top: 1.5rem; margin-bottom: 0.5rem; color: var(--danger); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em;">Reach (Ambitious)</h3>
+              \${renderUnis(data.universityList.reach)}
+            \` : ''}
+            
+            \${data.universityList.realistic && data.universityList.realistic[0]?.name ? \`
+              <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; color: var(--accent); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em;">Realistic (Target)</h3>
+              \${renderUnis(data.universityList.realistic)}
+            \` : ''}
+            
+            \${data.universityList.safety && data.universityList.safety[0]?.name ? \`
+              <h3 style="margin-top: 2rem; margin-bottom: 0.5rem; color: var(--success); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.05em;">Safety (Backup)</h3>
+              \${renderUnis(data.universityList.safety)}
+            \` : ''}
+          </div>
+        \`;
+      }
+
+      // Financial Reality
+      if (data.financialReality) {
+        html += \`
+          <div class="section">
+            <h2 class="section-title">Financial Reality</h2>
+            <div class="grid-2">
+              <div class="table-container">
+                <table>
+                  <thead><tr><th>Funding Plan</th><th style="text-align: right;">Amount</th></tr></thead>
+                  <tbody>
+                    \${safeList(data.financialReality.fundingPlan, items => items.map(f => \`
+                      <tr>
+                        <td>\${f.item}</td>
+                        <td style="text-align: right; font-weight: \${f.item.includes('TOTAL') || f.item.includes('GAP') ? 'bold' : 'normal'}; color: \${f.item.includes('GAP') ? 'var(--danger)' : 'inherit'};">\${f.value || '-'}</td>
+                      </tr>
+                    \`).join(''))}
+                  </tbody>
+                </table>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div class="card" style="border-color: var(--accent);"><span class="label">Honest Verdict</span><div class="value">\${safeStr(data.financialReality.honestVerdict)}</div></div>
+                <div class="card"><span class="label">Loan Strategy</span><div class="value">\${safeStr(data.financialReality.loanOptions)}</div></div>
+                <div class="card"><span class="label">Part-time Work Reality</span><div class="value">\${safeStr(data.financialReality.partTimeWorkReality)}</div></div>
+              </div>
+            </div>
+          </div>
+        \`;
+      }
+
+      // Action Plan
+      if (data.actionPlan) {
+        const validActions = (data.actionPlan || []).filter(a => a.month && a.focus);
+        if (validActions.length > 0) {
+          html += \`
+            <div class="section">
+              <h2 class="section-title">Execution Roadmap</h2>
+              <div class="grid-2">
+                \${validActions.map(a => \`
+                  <div class="card" style="border-left: 3px solid var(--accent);">
+                    <span class="label" style="color: var(--accent);">\${a.month}</span>
+                    <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; font-family: 'Syne', sans-serif;">\${a.focus}</div>
+                    <div style="font-size: 0.95rem; color: var(--text-muted);">\${a.actions}</div>
+                  </div>
+                \`).join('')}
+              </div>
+            </div>
+          \`;
+        }
+      }
+      
+      // Community
+      const community = data.community || {};
+      if (community.discord || community.instagram) {
+        html += \`
+          <div style="text-align: center; margin: 4rem 0 2rem;">
+            <h2 style="font-family: 'Syne', sans-serif; font-size: 1.75rem; margin-bottom: 1.5rem;">Ready to take action?</h2>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+              \${community.discord ? \`<a href="\${community.discord}" target="_blank" class="btn">Join Discord Community</a>\` : ''}
+              \${community.instagram ? \`<a href="\${community.instagram}" target="_blank" class="btn btn-outline">Follow on Instagram</a>\` : ''}
+            </div>
+          </div>
+        \`;
+      }
+
+      document.getElementById('content').innerHTML = html;
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('dashboard').style.display = 'block';
+    }
+
+    window.addEventListener('DOMContentLoaded', initDashboard);
+  </script>
+</body>
+</html>

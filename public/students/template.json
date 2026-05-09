@@ -1,0 +1,79 @@
+{
+  "studentInfo": {
+    "name": "",
+    "classStream": "",
+    "citySchool": "",
+    "familyBackground": "",
+    "fieldOfInterest": "",
+    "personalSummary": ""
+  },
+  "realityCheck": {
+    "chanceLevel": "",
+    "reasonWhy": "",
+    "whatChanges": ""
+  },
+  "profileAssessment": {
+    "strengths": [],
+    "weaknesses": [],
+    "meansForAdmission": "",
+    "canBeChanged": "",
+    "cannotBeChanged": ""
+  },
+  "universityList": {
+    "reach": [
+      {"name": "", "country": "", "program": "", "why": ""},
+      {"name": "", "country": "", "program": "", "why": ""},
+      {"name": "", "country": "", "program": "", "why": ""},
+      {"name": "", "country": "", "program": "", "why": ""},
+      {"name": "", "country": "", "program": "", "why": ""}
+    ],
+    "realistic": [
+      {"name": "", "country": "", "program": "", "why": ""},
+      {"name": "", "country": "", "program": "", "why": ""},
+      {"name": "", "country": "", "program": "", "why": ""},
+      {"name": "", "country": "", "program": "", "why": ""},
+      {"name": "", "country": "", "program": "", "why": ""}
+    ],
+    "safety": [
+      {"name": "", "country": "", "program": "", "why": ""},
+      {"name": "", "country": "", "program": "", "why": ""},
+      {"name": "", "country": "", "program": "", "why": ""},
+      {"name": "", "country": "", "program": "", "why": ""},
+      {"name": "", "country": "", "program": "", "why": ""}
+    ]
+  },
+  "scholarships": [
+    {"name": "", "amount": "", "deadline": "", "why": ""},
+    {"name": "", "amount": "", "deadline": "", "why": ""},
+    {"name": "", "amount": "", "deadline": "", "why": ""},
+    {"name": "", "amount": "", "deadline": "", "why": ""},
+    {"name": "", "amount": "", "deadline": "", "why": ""},
+    {"name": "", "amount": "", "deadline": "", "why": ""},
+    {"name": "", "amount": "", "deadline": "", "why": ""}
+  ],
+  "extracurriculars": [
+    {"name": "", "why": "", "how": ""},
+    {"name": "", "why": "", "how": ""},
+    {"name": "", "why": "", "how": ""},
+    {"name": "", "why": "", "how": ""},
+    {"name": "", "why": "", "how": ""}
+  ],
+  "actionPlan": [
+    {"month": "Month 1", "focus": "", "actions": ""},
+    {"month": "Month 2", "focus": "", "actions": ""},
+    {"month": "Month 3", "focus": "", "actions": ""},
+    {"month": "Month 4", "focus": "", "actions": ""},
+    {"month": "Month 5", "focus": "", "actions": ""},
+    {"month": "Month 6", "focus": "", "actions": ""},
+    {"month": "Month 7", "focus": "", "actions": ""},
+    {"month": "Month 8", "focus": "", "actions": ""},
+    {"month": "Month 9", "focus": "", "actions": ""},
+    {"month": "Month 10", "focus": "", "actions": ""},
+    {"month": "Month 11", "focus": "", "actions": ""},
+    {"month": "Month 12", "focus": "", "actions": ""}
+  ],
+  "community": {
+    "discord": "https://discord.gg/ucN9WfjM",
+    "instagram": "https://www.instagram.com/saksham.mov/"
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "studentInfo": {
+    "name": "Arjun Sharma",
+    "classStream": "Class 12 · Science (PCM)",
+    "citySchool": "Indore · Private State Board",
+    "familyBackground": "First-generation student; father is a small business owner.",
+    "fieldOfInterest": "Computer Science with a focus on AI/ML",
+    "personalSummary": "Arjun is a highly motivated student from Indore who has taught himself Python and basic web development despite limited resources at school. He shows immense potential in technical problem-solving but needs to bridge the gap in international exposure and standardized testing. His dream is to build AI solutions for agricultural efficiency in India."
+  },
+  "realityCheck": {
+    "chanceLevel": "Realistic",
+    "reasonWhy": "Your technical skills are strong for your age, but your lack of formal extracurriculars and the competitive nature of CS for Indian students means you need a very high SAT score to stand out to top universities. Currently, your profile is strong for academics but thin on the 'holistic' side that US colleges love.",
+    "whatChanges": "A 1500+ SAT score and completing 2 high-impact open-source projects or a research paper will move you from Realistic to a Strong Candidate for mid-tier US colleges like Purdue or UIUC."
+  },
+  "profileAssessment": {
+    "strengths": [
+      "Self-taught technical proficiency in Python and React",
+      "Strong academic record in Math and Physics (95%+ predicted)",
+      "Resilience and ability to learn with limited resources",
+      "Clear vision for future career in AI and social impact"
+    ],
+    "weaknesses": [
+      "Lack of international standardized test scores (SAT/IELTS)",
+      "Zero formal extracurricular achievements or club leadership",
+      "Limited community service or visible impact outside school",
+      "Lack of exposure to international application processes"
+    ],
+    "meansForAdmission": "Admissions officers will see a 'diamond in the rough' — a student with high raw intelligence but lower 'polish'. They will value your self-starter attitude but will worry if you can handle the rigorous social and academic environment of a top global campus without prior exposure.",
+    "canBeChanged": "SAT scores, extracurricular projects, personal statement quality, and English proficiency certification.",
+    "cannotBeChanged": "High school location (Indore), family income bracket, and 10th-grade board marks."
+  },
+  "universityList": {
+    "reach": [
+      { "name": "Purdue University", "country": "USA", "program": "B.S. Computer Science", "why": "Top-tier CS program with a focus on research that aligns with your AI interests." },
+      { "name": "University of Waterloo", "country": "Canada", "program": "Computer Science (Co-op)", "why": "Excellent co-op opportunities that would provide the international work experience you lack." },
+      { "name": "Georgia Institute of Technology", "country": "USA", "program": "B.S. Computer Science", "why": "Very strong in AI/ML; great for self-taught students with high technical skills." },
+      { "name": "National University of Singapore", "country": "Singapore", "program": "Computer Science", "why": "Closer to home, extremely prestigious, and values strong academic foundations like yours." },
+      { "name": "University of Edinburgh", "country": "UK", "program": "Informatics", "why": "One of the best in Europe for AI; values the deep technical interest you've shown." }
+    ],
+    "realistic": [
+      { "name": "University of Massachusetts Amherst", "country": "USA", "program": "Computer Science", "why": "Excellent CS rankings and slightly more achievable than top Ivies." },
+      { "name": "Arizona State University", "country": "USA", "program": "Computer Science", "why": "Great for international students; generous with scholarships for high GPA students." },
+      { "name": "University of British Columbia", "country": "Canada", "program": "B.Sc. Computer Science", "why": "Strong academic focus and a very diverse student body." },
+      { "name": "TU Delft", "country": "Netherlands", "program": "B.Sc. Computer Science", "why": "Incredible value for money; very high standards but achievable with your grades." },
+      { "name": "Texas A&M University", "country": "USA", "program": "Computer Science", "why": "Strong engineering culture and good job prospects in tech hubs." }
+    ],
+    "safety": [
+      { "name": "Penn State University", "country": "USA", "program": "Computer Science", "why": "Solid program where your current grades make you a very safe candidate." },
+      { "name": "University of Texas at Dallas", "country": "USA", "program": "Computer Science", "why": "Fast-growing tech scene; very safe with your predicted scores." },
+      { "name": "York University", "country": "Canada", "program": "Computer Science", "why": "Good program in Toronto; very achievable admission standards." },
+      { "name": "Michigan State University", "country": "USA", "program": "Computer Science", "why": "Strong international support and good safety for high-achieving Indian students." },
+      { "name": "University of New South Wales", "country": "Australia", "program": "Computer Science", "why": "Great alternative; very high acceptance rate for students with 90%+ in 12th." }
+    ]
+  },
+  "scholarships": [
+    { "name": "Tata Scholarship for Cornell", "amount": "Full Tuition", "deadline": "Nov 2026", "why": "Specifically for Indian students with high need and high merit." },
+    { "name": "ASU New American University Scholarship", "amount": "$10,000 - $15,000 / year", "deadline": "Rolling", "why": "Automatic consideration based on your high GPA." },
+    { "name": "Lester B. Pearson International Scholarship", "amount": "Full Tuition + Living", "deadline": "Jan 2026", "why": "For exceptional international students applying to UofT." },
+    { "name": "Purdue Trustees Scholarship", "amount": "$10,000 - $16,000 / year", "deadline": "Nov 1st (Early Action)", "why": "Awarded to high-achieving out-of-state students." },
+    { "name": "UMass Amherst Chancellor's Award", "amount": "$12,000 - $16,000 / year", "deadline": "Rolling", "why": "Merit-based award for high-achieving international applicants." }
+  ],
+  "extracurriculars": [
+    { "name": "Contribute to a major Open Source project", "why": "Shows you can work in a global team and have professional-level coding skills.", "how": "Start with 'Good First Issues' on GitHub repositories like Django or TensorFlow. Focus on fixing documentation first, then code." },
+    { "name": "Start a Coding Club in your school/neighborhood", "why": "Shows leadership and initiative, which is currently missing from your profile.", "how": "Gather 5 friends, pick a curriculum (like CS50), and meet weekly. Document the progress on a blog." },
+    { "name": "Build a 'Problem Solver' project for Indore", "why": "Connects your CS interest with your local community (Tier 2 city context).", "how": "Create a simple app that helps local farmers or small shops. Even a basic inventory tracker shows real-world impact." },
+    { "name": "Write 5 Technical Blog Posts on Medium/Dev.to", "why": "Demonstrates communication skills and depth of knowledge in AI/ML.", "how": "Explain what you learned while teaching yourself Python. Share your unique perspective as a student from Indore." },
+    { "name": "Compete in Google Hash Code or Codeforces", "why": "Provides a globally recognized benchmark for your coding speed and logic.", "how": "Participate in weekly contests. Reaching 'Specialist' rank on Codeforces is a massive profile booster." }
+  ],
+  "actionPlan": [
+    { "month": "Month 1", "focus": "SAT & IELTS Prep", "actions": "Register for Khan Academy; take first SAT diagnostic; spend 1 hour daily on vocabulary." },
+    { "month": "Month 2", "focus": "SAT Intensive", "actions": "Complete 4 full practice tests; focus on Writing & Language section strategy." },
+    { "month": "Month 3", "focus": "First SAT Attempt", "actions": "Take the SAT; start researching 5 specific professors at your Reach universities." },
+    { "month": "Month 4", "focus": "EC Foundation", "actions": "Start your local Coding Club; build the first version of your 'Problem Solver' app." },
+    { "month": "Month 5", "focus": "Summer Project", "actions": "Apply for remote internships or start contributing 10 hours/week to Open Source." },
+    { "month": "Month 6", "focus": "Uni List Finalization", "actions": "Refine your list based on SAT scores; attend virtual tours of your top 5 choices." },
+    { "month": "Month 7", "focus": "Essay Brainstorming", "actions": "Write 10 drafts of your Common App 'Personal Statement'; focus on your Indore journey." },
+    { "month": "Month 8", "focus": "Essay Refining", "actions": "Get feedback on essays from teachers; write 'Why This College' supplements for Reach schools." },
+    { "month": "Month 9", "focus": "Standardized Testing", "actions": "Retake SAT if below 1500; take IELTS (aim for 7.5+ band)." },
+    { "month": "Month 10", "focus": "Early Applications", "actions": "Submit Early Action/Decision applications to Purdue and UMass Amherst." },
+    { "month": "Month 11", "focus": "Regular Decision", "actions": "Submit remaining 10 applications; apply for university-specific merit scholarships." },
+    { "month": "Month 12", "focus": "Financial Aid & Interview", "actions": "Complete CSS Profile and FAFSA (if applicable); prepare for interview." }
+  ],
+  "disclaimer": "This roadmap was built specifically for you based on the information you shared and current admission data available at the time of research. It is not a guarantee of admission to any university or receipt of any scholarship. Admissions involve many factors beyond any roadmap — including factors that change every year. University requirements, scholarship availability, and deadlines shift. Always verify directly with the institution.",
+  "community": {
+    "discord": "https://discord.gg/ucN9WfjM",
+    "instagram": "https://www.instagram.com/saksham.mov/"
+  }
+}

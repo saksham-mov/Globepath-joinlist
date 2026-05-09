@@ -1,0 +1,172 @@
+{
+  "studentInfo": {
+    "name": "",
+    "studyStage": "",
+    "citySchool": "",
+    "familyBackground": "",
+    "fieldOfInterest": "",
+    "targetDegree": "",
+    "personalSummary": ""
+  },
+  "realityCheck": {
+    "chanceLevel": "",
+    "reasonWhy": "",
+    "whatChanges": "",
+    "lyingToThemselves": ""
+  },
+  "profileAssessment": {
+    "strengths": ["", "", "", "", ""],
+    "weaknesses": ["", "", "", "", ""],
+    "meansForAdmission": "",
+    "canBeChanged": "",
+    "cannotBeChanged": ""
+  },
+  "universityList": {
+    "reach": [
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" },
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" },
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" },
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" },
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" }
+    ],
+    "realistic": [
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" },
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" },
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" },
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" },
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" }
+    ],
+    "safety": [
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" },
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" },
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" },
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" },
+      { "name": "", "country": "", "program": "", "qsRank": "", "acceptanceRate": "", "why": "" }
+    ]
+  },
+  "countrySnapshot": {
+    "countries": [
+      {
+        "name": "",
+        "tuition": "",
+        "livingCost": "",
+        "workRights": "",
+        "postStudyVisa": "",
+        "prPathway": "",
+        "languageBarrier": "",
+        "jobMarket": "",
+        "scholarshipAccess": "",
+        "honestVerdict": ""
+      },
+      {
+        "name": "",
+        "tuition": "",
+        "livingCost": "",
+        "workRights": "",
+        "postStudyVisa": "",
+        "prPathway": "",
+        "languageBarrier": "",
+        "jobMarket": "",
+        "scholarshipAccess": "",
+        "honestVerdict": ""
+      },
+      {
+        "name": "",
+        "tuition": "",
+        "livingCost": "",
+        "workRights": "",
+        "postStudyVisa": "",
+        "prPathway": "",
+        "languageBarrier": "",
+        "jobMarket": "",
+        "scholarshipAccess": "",
+        "honestVerdict": ""
+      }
+    ],
+    "recommendedCountry": ""
+  },
+  "scholarships": {
+    "list": [
+      { "name": "", "amount": "", "deadline": "", "eligibility": "", "why": "" },
+      { "name": "", "amount": "", "deadline": "", "eligibility": "", "why": "" },
+      { "name": "", "amount": "", "deadline": "", "eligibility": "", "why": "" },
+      { "name": "", "amount": "", "deadline": "", "eligibility": "", "why": "" },
+      { "name": "", "amount": "", "deadline": "", "eligibility": "", "why": "" },
+      { "name": "", "amount": "", "deadline": "", "eligibility": "", "why": "" },
+      { "name": "", "amount": "", "deadline": "", "eligibility": "", "why": "" }
+    ],
+    "mostImportant": ""
+  },
+  "testRoadmap": {
+    "tests": [
+      { "name": "IELTS / TOEFL", "requiredFor": "All countries", "targetScore": "7.0+ / 100+", "current": "", "gap": "", "startBy": "", "resource": "BritishCouncil.org / ETS.org" },
+      { "name": "SAT / ACT", "requiredFor": "USA undergrad", "targetScore": "1350+ / 30+", "current": "", "gap": "", "startBy": "", "resource": "Khan Academy (free SAT)" },
+      { "name": "GRE / GMAT", "requiredFor": "Masters / MBA", "targetScore": "320+ / 700+", "current": "", "gap": "", "startBy": "", "resource": "GregMat / Manhattan Prep" },
+      { "name": "AP / A-Level", "requiredFor": "UK / some US", "targetScore": "Based on uni", "current": "", "gap": "", "startBy": "", "resource": "" },
+      { "name": "Portfolio / Other", "requiredFor": "Design / Arts", "targetScore": "N/A — quality", "current": "", "gap": "", "startBy": "", "resource": "" }
+    ],
+    "criticalNote": ""
+  },
+  "extracurriculars": [
+    { "name": "", "why": "", "how": "" },
+    { "name": "", "why": "", "how": "" },
+    { "name": "", "why": "", "how": "" },
+    { "name": "", "why": "", "how": "" },
+    { "name": "", "why": "", "how": "" }
+  ],
+  "essayStrategy": {
+    "coreNarrative": "",
+    "uniqueAngle": "",
+    "toAvoid": ["", "", ""],
+    "brainstormPrompts": ["", "", ""],
+    "lorStrategy": ""
+  },
+  "financialReality": {
+    "costBreakdown": [
+      { "item": "Tuition (per year)", "safety": "", "realistic": "", "reach": "" },
+      { "item": "Living Cost (per year)", "safety": "", "realistic": "", "reach": "" },
+      { "item": "Visa & Application Fees", "safety": "", "realistic": "", "reach": "" },
+      { "item": "Flights (estimate)", "safety": "", "realistic": "", "reach": "" },
+      { "item": "Health Insurance (per year)", "safety": "", "realistic": "", "reach": "" },
+      { "item": "Misc / Emergency Buffer", "safety": "", "realistic": "", "reach": "" },
+      { "item": "TOTAL (Year 1)", "safety": "", "realistic": "", "reach": "" },
+      { "item": "TOTAL (Full Degree)", "safety": "", "realistic": "", "reach": "" }
+    ],
+    "fundingPlan": [
+      { "item": "Family Contribution (confirmed)", "value": "" },
+      { "item": "Scholarships Matched (realistic)", "value": "" },
+      { "item": "Part-time Work (conservative)", "value": "" },
+      { "item": "Education Loan (if applicable)", "value": "" },
+      { "item": "TOTAL FUNDING", "value": "" },
+      { "item": "FUNDING GAP", "value": "" }
+    ],
+    "loanOptions": "",
+    "partTimeWorkReality": "",
+    "honestVerdict": ""
+  },
+  "redFlags": {
+    "profileRedFlags": ["", "", "", ""],
+    "falseBeliefs": ["", "", ""],
+    "trapsToAvoid": ["", "", ""],
+    "stopDoingImmediately": ""
+  },
+  "actionPlan": [
+    { "month": "Month 1", "focus": "", "actions": "" },
+    { "month": "Month 2", "focus": "", "actions": "" },
+    { "month": "Month 3", "focus": "", "actions": "" },
+    { "month": "Month 4", "focus": "", "actions": "" },
+    { "month": "Month 5", "focus": "", "actions": "" },
+    { "month": "Month 6", "focus": "", "actions": "" },
+    { "month": "Month 7", "focus": "", "actions": "" },
+    { "month": "Month 8", "focus": "", "actions": "" },
+    { "month": "Month 9", "focus": "", "actions": "" },
+    { "month": "Month 10", "focus": "", "actions": "" },
+    { "month": "Month 11", "focus": "", "actions": "" },
+    { "month": "Month 12", "focus": "", "actions": "" }
+  ],
+  "disclaimer": "",
+  "community": {
+    "discord": "https://discord.gg/ucN9WfjM",
+    "instagram": "https://www.instagram.com/saksham.mov/"
+  }
+}

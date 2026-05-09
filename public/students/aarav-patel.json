@@ -1,0 +1,205 @@
+{
+  "studentInfo": {
+    "name": "Aarav Patel",
+    "studyStage": "Class 12 · PCM with Computer Science",
+    "citySchool": "Ahmedabad · Delhi Public School (Private)",
+    "familyBackground": "First-generation applicant; father runs a local business",
+    "fieldOfInterest": "Computer Science & Artificial Intelligence",
+    "targetDegree": "Bachelor of Science (B.S.)",
+    "personalSummary": "Aarav is a highly driven coder with a passion for robotics and automation. Despite limited formal exposure to international applications in his school, he has taught himself Python and won several local hackathons. He represents the classic ambitious Indian student who has the technical skills but needs a strategic narrative to break into top-tier global universities."
+  },
+  "realityCheck": {
+    "chanceLevel": "Possible With Effort",
+    "reasonWhy": "While your technical profile is strong (95% in Math/CS), your extracurriculars lack depth beyond school-level competitions. International admissions at top unis require a broader 'spike' that demonstrates leadership or real-world impact.",
+    "whatChanges": "Moving to 'Realistic' requires a target SAT score of 1500+ and starting an independent project that solves a community problem using CS. Timeline: Project must start by next month.",
+    "lyingToThemselves": "You believe that high grades alone will get you into a top 20 US university. In reality, for CS, grades are just the entry ticket; the differentiation happens in your 'Why CS' narrative and out-of-classroom impact."
+  },
+  "profileAssessment": {
+    "strengths": [
+      "Exceptional academic record in core STEM subjects (95%+ consistently)",
+      "Self-taught proficiency in Python, C++, and basic Machine Learning",
+      "Consistent winner of state-level Mathematics Olympiads",
+      "Strong work ethic and ability to handle rigorous courseloads",
+      "Clear, focused interest in a high-demand field (AI)"
+    ],
+    "weaknesses": [
+      "Lack of demonstrated leadership or team management experience",
+      "Minimal engagement in social impact or community-driven projects",
+      "Standardized test prep (SAT) has not yet reached the required threshold",
+      "School background provides limited guidance for international SOPs",
+      "English communication is functional but needs more 'narrative' flair for essays"
+    ],
+    "meansForAdmission": "Admissions officers will see you as a 'safe' technical recruit but might pass you over for students who show more 'human' impact. You need to show that you can build for others, not just solve equations.",
+    "canBeChanged": "SAT scores, depth of your coding project, quality of your personal statement, and letters of recommendation.",
+    "cannotBeChanged": "Your Class 10/11 grades, school type, and your family's initial lack of study-abroad history."
+  },
+  "universityList": {
+    "reach": [
+      { "name": "Georgia Institute of Technology", "country": "USA", "program": "B.S. Computer Science", "qsRank": "33", "acceptanceRate": "16%", "why": "Premier technical school that values your self-taught coding spike." },
+      { "name": "University of Waterloo", "country": "Canada", "program": "Software Engineering", "qsRank": "112", "acceptanceRate": "5-10%", "why": "The best Co-op program in the world; matches your practical focus." },
+      { "name": "University of Texas at Austin", "country": "USA", "program": "Computer Science", "qsRank": "52", "acceptanceRate": "29%", "why": "Excellent ROI and strong industry ties in Austin's tech hub." },
+      { "name": "Imperial College London", "country": "UK", "program": "BEng Computing", "qsRank": "6", "acceptanceRate": "12%", "why": "Matches your rigorous STEM background and Olympiad success." },
+      { "name": "National University of Singapore", "country": "Singapore", "program": "Computer Science", "qsRank": "8", "acceptanceRate": "5%", "why": "Proximity to India and world-class technical education." }
+    ],
+    "realistic": [
+      { "name": "Purdue University", "country": "USA", "program": "Computer Science", "qsRank": "99", "acceptanceRate": "50%", "why": "Strong engineering reputation and accessible for high-scoring STEM students." },
+      { "name": "University of British Columbia", "country": "Canada", "program": "B.Sc. Computer Science", "qsRank": "34", "acceptanceRate": "40%", "why": "Top-tier Canadian education with a clear path to PR." },
+      { "name": "TU Delft", "country": "Netherlands", "program": "B.Sc. Computer Science", "qsRank": "47", "acceptanceRate": "30%", "why": "Highly affordable European option with English-taught programs." },
+      { "name": "Arizona State University", "country": "USA", "program": "Computer Science", "qsRank": "200", "acceptanceRate": "88%", "why": "Excellent for merit scholarships; strong tech placement." },
+      { "name": "University of Melbourne", "country": "Australia", "program": "B.Sc. Computing", "qsRank": "14", "acceptanceRate": "70%", "why": "Prestigious Australian option with great student life." }
+    ],
+    "safety": [
+      { "name": "Michigan State University", "country": "USA", "program": "Computer Science", "qsRank": "136", "acceptanceRate": "83%", "why": "Solid technical program with high likelihood of admission." },
+      { "name": "University of Alberta", "country": "Canada", "program": "Computing Science", "qsRank": "111", "acceptanceRate": "50%", "why": "Affordable Canadian option with strong research in AI." },
+      { "name": "University of Wollongong", "country": "Australia", "program": "Computer Science", "qsRank": "162", "acceptanceRate": "75%", "why": "Known for practical tech training and industry placement." },
+      { "name": "Iowa State University", "country": "USA", "program": "Computer Engineering", "qsRank": "400+", "acceptanceRate": "90%", "why": "Good technical school with very low tuition costs." },
+      { "name": "VIT University", "country": "India", "program": "B.Tech CSE", "qsRank": "800+", "acceptanceRate": "N/A", "why": "Strongest Indian fallback with international exchange options." }
+    ]
+  },
+  "countrySnapshot": {
+    "countries": [
+      {
+        "name": "USA",
+        "tuition": "$45,000 - $60,000",
+        "livingCost": "$1,500 - $2,000",
+        "workRights": "20 hrs/wk (on-campus)",
+        "postStudyVisa": "OPT (3 years for STEM)",
+        "prPathway": "Difficult / H1B Lottery",
+        "languageBarrier": "Low",
+        "jobMarket": "Strongest (Silicon Valley)",
+        "scholarshipAccess": "High (Merit + Need)",
+        "honestVerdict": "High risk, highest reward. Best for your AI career goals."
+      },
+      {
+        "name": "Canada",
+        "tuition": "$30,000 - $45,000",
+        "livingCost": "$1,200 - $1,500",
+        "workRights": "20 hrs/wk (anywhere)",
+        "postStudyVisa": "PGWP (up to 3 years)",
+        "prPathway": "Realistic (Express Entry)",
+        "languageBarrier": "Low",
+        "jobMarket": "Moderate (Growing tech hub)",
+        "scholarshipAccess": "Moderate",
+        "honestVerdict": "Best for long-term security and PR. Waterloo is top choice."
+      },
+      {
+        "name": "Germany",
+        "tuition": "$0 - $3,000 (Public)",
+        "livingCost": "$900 - $1,100",
+        "workRights": "20 hrs/wk",
+        "postStudyVisa": "18 months",
+        "prPathway": "Possible (Blue Card)",
+        "languageBarrier": "High (Needs B2/C1)",
+        "jobMarket": "Strong (Industrial Tech)",
+        "scholarshipAccess": "Low (Tuition is free)",
+        "honestVerdict": "Best if funding is tight, but language is a major hurdle."
+      }
+    ],
+    "recommendedCountry": "USA — Because your focus is specifically on AI/ML, the research opportunities and venture capital in the US outweigh the PR risks in the short term."
+  },
+  "scholarships": {
+    "list": [
+      { "name": "Tata Scholarship (Cornell)", "amount": "Full Tuition", "deadline": "Nov 1st", "eligibility": "Indian citizen, Need-based", "why": "Matches your profile as a high-achieving Indian student." },
+      { "name": "Presidential Scholarship (ASU)", "amount": "$15,000/year", "deadline": "Jan 15th", "eligibility": "High GPA + SAT", "why": "Highly realistic based on your current 95% average." },
+      { "name": "Lester B. Pearson (UofT)", "amount": "Full Ride", "deadline": "Nov 30th", "eligibility": "School Nomination", "why": "Requires school nomination; you are a top candidate at DPS." },
+      { "name": "Inlaks Foundation", "amount": "$100,000 total", "deadline": "March 31st", "eligibility": "Indian Citizen, Exceptional talent", "why": "Targets students with unique talents (your coding/robotics)." },
+      { "name": "Education Future", "amount": "Rs. 2-10 Lakhs", "deadline": "Rolling", "eligibility": "Indian, Merit-based", "why": "Easy to apply, good for supplemental funding." },
+      { "name": "Snell Scholarship (Waterloo)", "amount": "$5,000", "deadline": "May 1st", "eligibility": "Admitted to Engineering", "why": "Standard entry award for high-scoring applicants." },
+      { "name": "Global Excellence (UWA)", "amount": "$12,000/year", "deadline": "Dec 31st", "eligibility": "Merit-based", "why": "Safety option for funding in Australia." }
+    ],
+    "mostImportant": "Tata Scholarship at Cornell. It is the only 'Full Ride' that specifically targets Indian students. You need to apply Early Decision to maximize this."
+  },
+  "testRoadmap": {
+    "tests": [
+      { "name": "IELTS / TOEFL", "requiredFor": "All countries", "targetScore": "7.5+", "current": "N/A", "gap": "Needs practice", "startBy": "July", "resource": "BritishCouncil.org" },
+      { "name": "SAT / ACT", "requiredFor": "USA undergrad", "targetScore": "1520+", "current": "1410 (mock)", "gap": "110 points", "startBy": "May", "resource": "Khan Academy (free SAT)" },
+      { "name": "GRE / GMAT", "requiredFor": "Masters", "targetScore": "N/A", "current": "N/A", "gap": "N/A", "startBy": "N/A", "resource": "" },
+      { "name": "AP / A-Level", "requiredFor": "UK / some US", "targetScore": "AP Calculus BC", "current": "Preparing", "gap": "Self-study", "startBy": "Jan", "resource": "CB Website" },
+      { "name": "Portfolio / Other", "requiredFor": "CS Projects", "targetScore": "GitHub Profile", "current": "3 repos", "gap": "Need 1 'Star' project", "startBy": "Ongoing", "resource": "GitHub" }
+    ],
+    "criticalNote": "Your SAT Math is already 780, but English is 630. This gap is the only thing stopping you from Ivy-plus schools. Focus 80% of prep on SAT Reading/Writing."
+  },
+  "extracurriculars": [
+    { "name": "Community Tech Workshop", "why": "Shows leadership and ability to simplify complex concepts.", "how": "Start a free 4-week Python class for 5 students in your neighborhood. Document it." },
+    { "name": "Open Source Contribution", "why": "Proves you can code in real-world professional environments.", "how": "Find 'Good First Issues' on a popular Python library on GitHub. Aim for 3 merged PRs." },
+    { "name": "School Tech Club President", "why": "Demonstrates peer leadership and institutional impact.", "how": "Organize a school-level hackathon. Get a local tech company to sponsor $100 in prizes." },
+    { "name": "AI for Local Business", "why": "Shows you can solve real-world problems with your target field.", "how": "Build a simple inventory bot for your father's business. Write a blog post about it." },
+    { "name": "Math Research Paper", "why": "High academic rigour for top US/UK schools.", "how": "Work with a local professor to write a short paper on a specific mathematical proof." }
+  ],
+  "essayStrategy": {
+    "coreNarrative": "The bridge between traditional Gujarati business ethics and modern algorithmic automation. You aren't just a coder; you are a problem-solver who understands the value of a rupee.",
+    "uniqueAngle": "Your experience helping your father with manual accounts and how that drove you to code your first automation script. It's personal, local, and technical.",
+    "toAvoid": [
+      "Starting with 'I have loved computers since I was 5'.",
+      "Talking about how 'AI is the future' (cliché and preachy).",
+      "Listing your awards (that's for the activities section)."
+    ],
+    "brainstormPrompts": [
+      "What was the first time a line of code you wrote actually changed something in the real world?",
+      "How has Ahmedabad's entrepreneurial culture influenced the way you think about software?",
+      "Describe a time you failed to fix a bug and what it taught you about persistence."
+    ],
+    "lorStrategy": "Math Teacher (focus on Olympiad success) and Computer Science Teacher (focus on self-taught projects and helping peers). Ask them 2 months before deadline."
+  },
+  "financialReality": {
+    "costBreakdown": [
+      { "item": "Tuition (per year)", "safety": "$28,000", "realistic": "$42,000", "reach": "$58,000" },
+      { "item": "Living Cost (per year)", "safety": "$12,000", "realistic": "$15,000", "reach": "$18,000" },
+      { "item": "Visa & Application Fees", "safety": "$1,000", "realistic": "$1,000", "reach": "$1,000" },
+      { "item": "Flights (estimate)", "safety": "$1,500", "realistic": "$1,500", "reach": "$1,500" },
+      { "item": "Health Insurance (per year)", "safety": "$2,000", "realistic": "$2,000", "reach": "$2,000" },
+      { "item": "Misc / Emergency Buffer", "safety": "$2,000", "realistic": "$2,000", "reach": "$2,000" },
+      { "item": "TOTAL (Year 1)", "safety": "$46,500", "realistic": "$63,500", "reach": "$82,500" },
+      { "item": "TOTAL (Full Degree)", "safety": "$186,000", "realistic": "$254,000", "reach": "$330,000" }
+    ],
+    "fundingPlan": [
+      { "item": "Family Contribution (confirmed)", "value": "$15,000/year" },
+      { "item": "Scholarships Matched (realistic)", "value": "$10,000/year" },
+      { "item": "Part-time Work (conservative)", "value": "$5,000/year" },
+      { "item": "Education Loan (if applicable)", "value": "$20,000/year" },
+      { "item": "TOTAL FUNDING", "value": "$50,000/year" },
+      { "item": "FUNDING GAP", "value": "None for Safety; $32,500 for Reach" }
+    ],
+    "loanOptions": "HDFC Credila (Standard choice for Indians), MPOWER Financing (Best for US schools without a co-signer).",
+    "partTimeWorkReality": "20 hours/week at $15/hr = ~$1,200/month. This is enough to cover your groceries and small expenses, but not tuition.",
+    "honestVerdict": "Safety and Realistic options are fully funded with a small loan. Reach schools require a major scholarship (like Tata) to be viable. Focus on those specific applications."
+  },
+  "redFlags": {
+    "profileRedFlags": [
+      "Significant drop in Class 11 English marks (88% to 72%).",
+      "No leadership roles listed in the initial survey.",
+      "Over-reliance on 'self-taught' without external verification (certs/contests).",
+      "Zero community service hours — vital for US holistic admissions."
+    ],
+    "falseBeliefs": [
+      "Thinking that a 1500 SAT makes you 'guaranteed' for a top school.",
+      "Believing that Indian state-level awards carry the same weight as international ones.",
+      "Assuming 'I'll figure out funding after I get in'."
+    ],
+    "trapsToAvoid": [
+      "Applying to too many 'Reach' schools and ignoring high-quality 'Safety' options.",
+      "Writing a technical SOP that sounds like a textbook instead of a story.",
+      "Waiting until the last week of December to start the Common App."
+    ],
+    "stopDoingImmediately": "Stop spending 4 hours a day on competitive coding platforms; you've already proven that. Spend those 4 hours on your Community Tech Workshop instead."
+  },
+  "actionPlan": [
+    { "month": "Month 1", "focus": "SAT Prep & Project Start", "actions": "Take diagnostic SAT. Start Community Tech Workshop syllabus. Finalize college list." },
+    { "month": "Month 2", "focus": "Standardized Testing", "actions": "Intensive SAT prep (focus on Reading). Run 1st workshop session. Contact LOR teachers." },
+    { "month": "Month 3", "focus": "First SAT Attempt", "actions": "Take May SAT. Apply for school nomination for Pearson scholarship. Build GitHub repo for bot." },
+    { "month": "Month 4", "focus": "Summer Spike", "actions": "Intensive coding for 'Star' project. Volunteer at a local NGO for 40 hours. Draft 1 of SOP." },
+    { "month": "Month 5", "focus": "Drafting Narrative", "actions": "Refine core narrative. Write 5 drafts of Personal Statement. Finalize activity list descriptions." },
+    { "month": "Month 6", "focus": "IELTS & Final SAT", "actions": "Take IELTS. Retake SAT if needed. Finalize Early Decision (ED) choice (Cornell)." },
+    { "month": "Month 7", "focus": "ED/EA Submissions", "actions": "Submit ED application to Cornell. Submit Early Action to Georgia Tech and Purdue." },
+    { "month": "Month 8", "focus": "Regular Decision Start", "actions": "Adapt core essays for RD schools. Apply for financial aid/CSS Profile. Get LORs uploaded." },
+    { "month": "Month 9", "focus": "RD Submissions", "actions": "Submit all remaining 10 applications. Proofread everything. Triple-check deadlines." },
+    { "month": "Month 10", "focus": "Scholarship Hunt", "actions": "Apply for independent Indian scholarships (Inlaks, Tata). Prep for interviews." },
+    { "month": "Month 11", "focus": "Decision Waiting", "actions": "Monitor portals. Submit mid-year school reports. Maintain high Class 12 marks." },
+    { "month": "Month 12", "focus": "Final Decision", "actions": "Review all offers & aid packages. Accept offer. Start visa process and loan docs." }
+  ],
+  "disclaimer": "This roadmap was built specifically for Aarav Patel based on the information shared. It is not a guarantee of admission. University requirements and scholarship availability shift. Always verify directly with the institution.",
+  "community": {
+    "discord": "https://discord.gg/ucN9WfjM",
+    "instagram": "https://www.instagram.com/saksham.mov/"
+  }
+}
